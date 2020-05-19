@@ -2,8 +2,9 @@ package edu.cnm.deepdive;
 
 public class TemperatureConversion {
 
-  private static final double FAHRENHEIT_TO_CELSIUS_SCALE = 5.0 / 9.0;
-  private static final double CELSIUS_TO_FAHRENHEIT_SCALE = 1 / FAHRENHEIT_TO_CELSIUS_SCALE;
+
+  private static final double CELSIUS_TO_FAHRENHEIT_SCALE = 9.0 / 5.0;
+  private static final double FAHRENHEIT_TO_CELSIUS_SCALE = 1/CELSIUS_TO_FAHRENHEIT_SCALE;
   private static final double SCALE_OFFSET = 32;
 
   public static void main(String[] args) {
@@ -39,6 +40,15 @@ public class TemperatureConversion {
       fahrenheitTemperatures[i] = fahrenheit;
     }
       return fahrenheitTemperatures;
+  }
+  public static double[] convertF2C(double[] fahrenheitTemperatures) {
+    double[] celsiusTemperatures = new double[fahrenheitTemperatures.length];
+    for (int i = 0; i < fahrenheitTemperatures.length; i++) {
+      double fahrenheit = fahrenheitTemperatures[i];
+      double celsius = convertF2C(fahrenheit);
+      celsiusTemperatures[i] = celsius;
+    }
+    return celsiusTemperatures;
   }
 }
 
